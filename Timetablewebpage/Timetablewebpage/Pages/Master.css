@@ -1,0 +1,10 @@
+﻿.tabs{
+    border: 1px solid;
+    display: flex;
+}
+
+.tabs__sidebar{
+    width:125px;
+    flex-shrink: 0;
+    background: #808080;
+}

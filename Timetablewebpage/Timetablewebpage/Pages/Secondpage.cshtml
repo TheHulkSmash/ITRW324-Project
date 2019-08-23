@@ -1,0 +1,133 @@
+﻿@page
+@model Timetablewebpage.Pages.SecondpageModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<body>
+    <form name="secondform">
+
+        <center>
+            <header class="special">Welcome #############</header>
+            <br />
+            <p class="special1">
+                The folowing tabs is created to make the timetable creating allot easier. <br />
+                The timetable will be create when all of the require information is entered. <br />
+            </p>
+            <br />
+            <button class="tablink" onclick="openPage('Home', this, 'red')"id="defaultOpen">Add class</button>
+            <button class="tablink" onclick="openPage('News', this, 'green')" >News</button>
+            <button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
+            <button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+
+            <div id="Home" class="tabcontent">
+                <h3>Please Add a class:</h3>
+                <p>Please enter the required information:</p>
+                <br />
+                <label>Class name/code:</label>
+                <input type="text" id="classname" name="classname"/>
+                <br />
+                <label>Time of the class:</label>
+                <input type="time" id="classtime" name="classtime"/>
+                <br />
+                <label>Class venue:</label>
+                <input type="text" id="classvenue" name="classvenue"/>
+
+                <br />
+                <button type="button" id="submitdetail" name="submitdetail">Save details</button>
+            </div>
+
+            <div id="News" class="tabcontent">
+                <h3>News</h3>
+                <p>Some news this fine day!</p>
+            </div>
+
+            <div id="Contact" class="tabcontent">
+                <h3>Contact</h3>
+                <p>Get in touch, or swing by for a cup of coffee.</p>
+            </div>
+
+            <div id="About" class="tabcontent">
+                <h3>About</h3>
+                <p>Who we are and what we do.</p>
+            </div>
+
+            
+        </center>
+        
+    </form>
+</body>
+
+<style type="text/css">
+    header.special {
+        font: 15px;
+        color: green;
+    }
+
+    p.special{
+        font:15px;
+        color:green;
+        width:15%;
+    }
+
+    .tablink {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+    }
+
+        .tablink:hover {
+            background-color: #777;
+        }
+
+    .tabcontent {
+        color: red;
+        display: none;
+        padding: 100px 20px;
+        height: 100%;
+    }
+
+    #Home {
+        background-color: none;
+    }
+
+    #News {
+        background-color: none;
+    }
+
+    #Contact {
+        background-color: none;
+    }
+
+    #About {
+        background-color: none;
+    }
+
+</style>
+
+<script>
+    function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click(); 
+</script>

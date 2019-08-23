@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<body>
+    <form name="loggingpage" method="post" action="">
+
+        <center><h1> This page will be used to create a timetable for any student making use of it.</h1></center>
+
+        <center>
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username" id="username" />
+                <br />
+                <label>Password:</label>
+                <input type="text" name="password" id="password" />
+                <br />
+                <button type="button" onclick=" window.location = 'Secondpage' ">Log in</button>
+            </div>
+        </center>
+
+        <style type="text/css">
+        </style>
+
+
+        <script>
+            
+        </script>
+
+    </form>
+
+</body>
