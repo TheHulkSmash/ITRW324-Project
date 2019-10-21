@@ -12,14 +12,15 @@
 
 <html>
     <center>
-        <form action="/gotimetable" method="POST"> 
+        <form action="/gotimetable" method="" > 
             <body id="main-body">
                 <div>
     
-                    <h3>Enter Module Code</h3>
-                    <input type="text" name="modulecode" id = "adddata" placeholder = "Please Enter Module Code" size="21">
-                    <br/>
-                    <button type="button" id="click1" onclick= "checkmodulecode();"> Add to Timetable</button>
+                        <input type="text" id="field1" value="Hello World!"><br>
+                        
+
+<button type="button" onclick="myFunction()">Copy Text</button>
+
                 </div>
                 <div class="table">
                     <h3 id="heading" class="card-header text-center font-weight-bold text-uppercase py-4">Time Table for students</h3>
@@ -31,7 +32,7 @@
                                 </a>
                             </span>
                             <div id="main-div">
-                                <table id="tables" class="table table-bordered table-responsive-md table-striped text-center">
+                                <table id="table" class="table table-bordered table-responsive-md table-striped text-center">
                                     <thead>
                                         <tr>
                                             <!--time table headers-->
@@ -52,9 +53,9 @@
                                                 <br/>
                                                 7.30 - 9.15<br />
                                             </td>
-                                            <td class="pt-3-half">
+                                            <td class="pt-3-half" id="n2">
                                                 ITRW324<br />
-                                                G1-117 <br />
+                                                <p id="field2"></p><br><br>
                                             </td>
                                             <td class="pt-3-half">
                                                 ITRW322 <br />
@@ -280,7 +281,20 @@
                     }
                 }
 
+    
+                function myFunction() {
+  var textbox = document.getElementById('field1');
+  var paragraph = document.getElementById('field2');
+  
+  paragraph.textContent = textbox.value;
+}
+
                 </script>
+                <style>
+                    table, th, td {
+                    border: 1px solid black;
+}
+                </style>
 
             </body>
     </form>
