@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<style>
+    table-editable {
+        background-color: limegreen;
+    }
+
+    div main-div {
+        color: lightgray;
+    }
+</style>
+
+
+<html>
+    <center>
+        <form action="/gotimetable" method="POST"> 
+            <body id="main-body">
+                <div>
+    
+                    <h3>Enter Module Code</h3>
+                    <input type="text" name="modulecode" id = "adddata" placeholder = "Please Enter Module Code" size="21">
+                    <br/>
+                    <button type="button" id="click1" onclick= "checkmodulecode();"> Add to Timetable</button>
+                </div>
+                <div class="table">
+                    <h3 id="heading" class="card-header text-center font-weight-bold text-uppercase py-4">Time Table for students</h3>
+                    <div class="card-body">
+                        <div id="table" class="table-editable">
+                            <span class="table-add float-right mb-3 mr-2">
+                                <a href="#!" class="text-success">
+                                    <i class="fas fa-plus fa-2x" aria-hidden="true"></i>
+                                </a>
+                            </span>
+                            <div id="main-div">
+                                <table id="tables" class="table table-bordered table-responsive-md table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <!--time table headers-->
+                                            <th class="text-center">Time </th>
+                                            <th class="text-center">Mon</th>
+                                            <th class="text-center">Tue</th>
+                                            <th class="text-center">Wed.</th>
+                                            <th class="text-center">Thur.</th>
+                                            <th class="text-center">Fri</th>
+                                            <th class="text-center">Appointments</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <!--Table data for each block/cell in the table-->
+                                            <td class="pt-3-half">
+                                                <br/>
+                                                7.30 - 9.15<br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW324<br />
+                                                G1-117 <br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                            </td>
+                                            <!-- <td class="pt-3-half">
+                                                    ITRW322<br />
+                                                    G1-212 <br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                    G1-212<br />
+                                                G1-212<br />
+                                                <br />
+                                            </td> -->
+                                            <td class="pt-3-half">---</td>
+                                            <td class="pt-3-half">
+                                                BMAN223 <br />
+                                                E7-121 <br />
+                                            </td>
+                                            <td class="pt-3-half">---</td>
+                                            <td class="pt-3-half">
+                                                No appontments added.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="pt-3-half">
+                                                <br />
+                                                9.30 - 10.45<br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ----
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ---
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW324<br />
+                                                G1-117 <br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                            </td>
+
+                                            <td class="pt-3-half">
+                                                No appontments added.
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="pt-3-half">
+                                                <br />
+                                                11:00 - 12.45<br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ----
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ---
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW324<br />
+                                                G1-117 <br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                            </td>
+
+                                            <td class="pt-3-half">
+                                                No appontments added.
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="pt-3-half">
+                                                <br />
+                                                13.00 - 14.15<br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ----
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ---
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW324<br />
+                                                G1-117 <br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                            </td>
+
+                                            <td class="pt-3-half">
+                                                No appontments added.
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="pt-3-half">
+                                                <br />
+                                                14.30 - 15.45<br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ----
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                                09:00
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ---
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW324<br />
+                                                G1-117 <br />
+                                                14:00
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                                16:00
+                                            </td>
+
+                                            <td class="pt-3-half">
+                                                No appontments added.
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="pt-3-half">
+                                                <br />
+                                                16.00 - 17.45<br />
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ----
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                                09:00
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ---
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW324<br />
+                                                G1-117 <br />
+                                                14:00
+                                            </td>
+                                            <td class="pt-3-half">
+                                                ITRW322 <br />
+                                                G1-212 <br />
+                                                16:00
+                                            </td>
+
+                                            <td class="pt-3-half">
+                                                No appontments added.
+                                            </td>
+
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button type="submit" id="submit"> Save details</button> -->
+                <br />
+                <div>
+                    <a href="/addapointment" class="btn btn-lg btn-goback"> Go Back </a>
+                </div>
+                <script type="text/javascript">
+
+
+
+                    document.getElementById("tables").style.backgroundColor = "lightgray";
+                    document.getElementById("main-body").style.backgroundColor = "white";
+                    document.getElementById("heading").style.color = "red";
+                    //var bodybag = document.getElementById("main-body");
+                    /*bodybag.addEventListener('mousemove', runEvent);
+                    function runEvent(e) {
+                        console.log('EVENT TYPE:' + e.type);
+                        document.body.style.backgroundColor = "rgb(" + e.offsetX + "," + e.offsetY + ", 40";
+                    }*/
+                    // function checkmodulecode(){
+                    //     var code = document.getElementById("adddata");
+                    //     if(code == ""){
+                    //     code.textContent = "Please enter module code"
+                    //     }
+                    //     else{
+                    //         MessageEvent("hello motto")
+                    //     } 
+                        
+                    // }
+                    function checkmodulecode(){
+                    var code = document.getElementById("adddata").value;
+
+                    if (code != "") {
+                        alert("you have successfully added a module");
+
+                    }
+                    else {
+                        alert("You havent entered anything")
+                    }
+                }
+
+                </script>
+
+            </body>
+    </form>
+</center>
+</html>
