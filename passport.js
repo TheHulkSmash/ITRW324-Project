@@ -87,3 +87,59 @@ passport.deserializeUser(function(AppointmentID, done){
            });
           })
          );
+               /*passport.use(
+          'local-addappointment',
+          new LocalStrategy({
+          AppointmentIDField : 'AppointmentID',
+          AppointmentdescriptionField : 'Appointmentdescription',
+          passReqToCallback: true
+          },
+          function(req, AppointmentID, Appointmentdescription, done){
+          connection.query("SELECT * FROM appointment WHERE AppointmentID = ? ", 
+          // [AppointmentID], function(err, rows){
+          // if(err)
+          // return done(err);
+          // if(rows.length){
+          // return done(null, false, req.flash('signupMessage', 'That is already taken'));
+          // }else{
+          // var newappointmentMysql = {
+          //     AppointmentID:AppointmentID,
+          //     Appointmentdescription:Appointmentdescription
+          // };
+      
+          var insertQuery = "INSERT INTO appointment (AppointmentID, Appointmentdescription) values (?, ?)";
+      
+          connection.query(insertQuery, [newappointmentMysql.AppointmentID, newappointmentMysql.Appointmentdescription],
+              function(err, rows){
+                  newappointmentMysql.AppointmentID = rows.AppointmentID;
+                  newappointmentMysql.Appointmentdescription = rows.Appointmentdescription;
+              return done(null, newappointmentMysql);
+              });
+          }
+          })}));*/
+  
+     
+  
+   passport.use(
+    'local-login',
+    new LocalStrategy({
+     usernameField : 'username',
+     passwordField: 'password',
+     passReqToCallback: true,
+    },
+    function(req, username, password, done){
+     connection.query("SELECT * FROM user WHERE username = ? ", [username],
+     console.log(username),
+     console.log(password),
+     function(err, rows){
+      if(err)
+       return done(err);
+      if(!rows.length){
+       return done(null, false, req.flash('loginMessage', 'No User Found'));
+      }
+      if(!password(password, rows[0].password))
+       return done(null, false, req.flash('loginMessage', 'Wrong Password'));
+  
+      return done(null, rows[0]);
+     });
+    }))
