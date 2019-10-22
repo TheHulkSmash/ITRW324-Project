@@ -41,3 +41,15 @@ passport.use(
      });
     })
    );
+   
+   passport.serializeUser(function(AppointmentID, done){
+    done(null, AppointmentID);
+   });
+
+
+passport.deserializeUser(function(AppointmentID, done){
+   connection.query("SELECT * FROM appointment WHERE AppointmentID = ? ", [AppointmentID],
+       function(err, AppointmentID){
+        done(err, AppointmentID);
+    });
+   });
