@@ -41,7 +41,7 @@ passport.use(
      });
     })
    );
-   
+
    passport.serializeUser(function(AppointmentID, done){
     done(null, AppointmentID);
    });
@@ -53,3 +53,37 @@ passport.deserializeUser(function(AppointmentID, done){
         done(err, AppointmentID);
     });
    });
+
+         passport.use(
+          'local-addappointment',
+          new LocalStrategy({
+           AppointmentField : 'Appointment',
+           Appointment_DescriptionField: 'Appointment_Description',
+           passReqToCallback: true
+          },
+          function(req, Appointment, Appointment_Description, done){
+           connection.query("SELECT * FROM appointment WHERE Appointment = ? ", 
+           [Appointment], function(err, rows){
+            if(err)
+             return done(err);
+            if(rows.length){
+             return done(null, false, req.flash('signupMessage', 'That is already taken'));
+            }else{
+             var newappointmentMysql = {
+              Appointment: Appointment,
+              Appointment_Description:Appointment_Description
+              //password: bcrypt.hashSync(password, null, null)
+             };
+        
+             var insertQuery1 = "INSERT INTO appointment (Appointment, Appointment_Description) values (?, ?)";
+        
+             connection.query(insertQuery1, [newappointmentMysql.Appointment, newappointmentMysql.Appointment_Description],
+              function(err, rows){
+                  newappointmentMysql.Appointment = rows.Appointment;
+        
+               return done(null, newappointmentMysql);
+              });
+            }
+           });
+          })
+         );
