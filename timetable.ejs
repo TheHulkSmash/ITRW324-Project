@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<head>
+        <title>Adding page</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Login Register</title>
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+     <link rel="stylesheet" 
+     href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+
+
+</head>
+
+
+<html>
+    <center>
+        <form action="/gotimetable" method="" > 
+            <body id="main-body">
+
+                        <br/>
+                        <button type="button"class="tablink" onclick="openPage('News', this, '')" >Adding class module</button>
+                        <button type="button" class="tablink" onclick="openPage('Home', this, '')">Add appointments</button>
+
+                        <a href="/logout" class="btn btn-danger btn-sm" >Logout</a>
+
+
+<div id="Home" class="tabcontent">
+    <center>
+
+        <p id="paragraph">
+            Add any apointments that comes up
+        </p>
+        <div class="form-group">
+        <label id="modulecode"> Appointment ID:</label>
+        <input type ="text" class="form-control" id="appointment" name="Appointment" />
+        <br />
+        </div>
+
+        <div class="form-group">
+        <label>Appointment description:</label>
+        <input type="text" class="form-control" id="appointmentdescription" name="Appointment_Description" />
+        <br />
+        </div>
+
+        <div class="form-group">
+        <label>Appointment time:</label>
+        <input type="text" class="form-control"  id="appointmenttime" name="Appointment_Time" />
+        <br />
+        </div>
+
+        <div class="form-group">
+        <label>Appointment date</label>
+        <input type="date" class="form-control" name="apointmentdate" id="Apointment_Date" />
+        <br />
+        </div>
+        <br/>
+        <button type="submit"class="btn btn-succcess btn-lg"> Submit Appointment </button>
+        <button type="button" onclick="addappointment()">Add to timetable</button>
+
+</div>
+
+<div id="News" class="tabcontent">
+        <br/>
+        <p>Please enter your module code(s):</p>
+        <p>Enter first module:</p>
+        <input type="text" id="field1" />
+        <br/>
+        <P>Second Module:</P>
+        <input type="text" id="field2" />
+        <br/>
+        <p>Third module:</p>
+        <input type="text" id="field1" />
+        <br/>
+        <P>Fourth Module:</P>
+        <input type="text" id="field2" />
+        <br/>
+        <P>Fith Module:</P>
+        <input type="text" id="field2" />
+        <br/>
+        <br/>
+        <button type="button" onclick="addclassmodule();">Test</button>
+        <button type="button" id="pulldata" onclick="addclassmodule();">Pull data from database and create timetable</button>
+        <!--<a href="/addclass" class="btn btn-danger btn-sm" >Create timetable</a>-->
+        
+</div>
+                <script>
+
+                    document.getElementById("tables").style.backgroundColor = "lightgray";
+                    document.getElementById("main-body").style.backgroundColor = "white";
+                    document.getElementById("heading").style.color = "red";
+
+                function myFunction() {
+                    
+                    var textbox = document.getElementById('field1');
+                    var paragraph = document.getElementById('field2');
+
+                    paragraph.textContent = textbox.value;
+
+                }
+
+                function addclassmodule()
+                {
+                    
+                    var textbox1 = document.getElementById('field1').value;
+                    var textbox2 = document.getElementById('field2').value;
+                    //var textbox3 = document.getElementById('field3').value;
+                    //var textbox4 = document.getElementById('field4').value;
+                    //var textbox5 = document.getElementById('field5').value;
+                    
+                    
+                    if(textbox1 == "ITRW122" && textbox2== "ITRW222")
+                    {
+                        setTimeout(function(){ window.location = href="/addapointment"; }, 5000);
+                    }
+                    else if(textbox1 == "ITRW122"){
+                        
+                        setTimeout(function(){ window.location = href="/addclass"; }, 3000);
+                        
+                            
+                    }else{
+                        alert("Please check your module code(s)");
+                    }
+                }
+            /*if(textbox1 == "ITRW122" && textbox2 == "ITRW222" && textbox3 == "ITRW321" && textbox4 == "ITRW322" && textbox5 == "ITRW324"){{
+                        alert("weldone");
+                    }
+                        window.location = href="/addclass";*/
+                    
+        
+                function settime()
+                {
+                    var textbox1 = document.getElementById('field1').value;
+                    var textbox2 = document.getElementById('field2').value;
+                    var textbox3 = document.getElementById('field3').value;
+                    var textbox4 = document.getElementById('field4').value;
+                    var textbox5 = document.getElementById('field5').value;
+
+                    if(textbox1 == "" && textbox2 == "" && textbox3 == "" && textbox4 == "" && textbox5 == ""){
+                        setTimeout(function(){ alert("Pull cant be done, enter module(s)."); }, 3000);
+                    }else{
+                        setTimeout(function(){ alert("Pull can be done"); }, 3000);
+                    }
+                    
+                }
+                function addappointment(){
+                    var textbox1 = document.getElementById('appointmentdescription');
+                    var paragraph1 = document.getElementById('appointmentdescriptiontotable');
+
+                    paragraph1.textContent = textbox1.value;
+                }
+
+
+                
+
+// Get the element with id="defaultOpen" and click on it
+//document.getElementById("defaultOpen").click();
+                </script>
+                <script>
+                function openPage(pageName,elmnt,color) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+                document.getElementById(pageName).style.display = "block";
+                elmnt.style.backgroundColor = color;
+                }
+                </script>
+                <style>
+                    
+                    table, th, td {
+                    border: 5px solid black;
+                    }
+                    .tabcontent {
+                    color: black;
+                    display: none;
+
+                    }
+
+                    * {box-sizing: border-box}
+
+                    /* Set height of body and the document to 100% */
+                    body, html {
+                    height: 100%;
+                    margin: 0;
+                    font-family: Arial;
+                    }
+
+                    /* Style tab links */
+                    .tablink {
+                    background-color: #555;
+                    color: white;
+                    float: center;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    padding: 14px 16px;
+                    font-size: 17px;
+                    width: 25%;
+                    }
+                    body  {
+                    background-image: url("https://image.shutterstock.com/image-illustration/paint-like-graphic-illustration-nice-260nw-1252427656.jpg");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    }
+                    .tablink:hover {
+                    background-color: #777;
+                    }
+                </style>
+
+            </body>
+    </form>
+</center>
+</html>

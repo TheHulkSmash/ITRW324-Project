@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <form action = "/addapointment" method="POST">
+        <center>
+            <header id="heading">Adding of appointments</header>
+            <p id="paragraph">
+                Add any apointments that comes up
+            </p>
+            <div class="form-group">
+            <label id="modulecode"> Appointment ID:</label>
+            <input type ="text" class="form-control" id="appointment" name="Appointment" />
+            <br />
+            </div>
+
+            <div class="form-group">
+            <label>Appointment description:</label>
+            <input type="text" class="form-control" id="appointmentdescription" name="Appointment_Description" />
+            <br />
+            </div>
+
+            <div class="form-group">
+            <label>Appointment time:</label>
+            <input type="text" class="form-control"  id="appointmenttime" name="Appointment_Time" />
+            <br />
+            </div>
+
+            <div class="form-group">
+            <label>Appointment date</label>
+            <input type="date" class="form-control" name="apointmentdate" id="Apointment_Date" />
+            <br />
+            </div>
+
+
+            <div>
+                <a href="/addclass" class="btn btn-lg btn-goback"> Go Back </a>
+           </div>
+            <br/>
+            <button type="submit"class="btn btn-succcess btn-lg"> Submit Appointment </button>
+
+
+
+            <input type="button" value="clear" onclick="ClearFields();" />
+            <br/>
+
+            <label> data entered:</label>
+            <input type="text" id="dataentered" name="dataentered" />
+        </center>
+    </form>
+
+</body>
+
+<script>
+   
+
+    function ClearFields() {
+
+        document.getElementById("appointmenttime").value = "";
+        document.getElementById("classmodule").value = "";
+        document.getElementById("apointmentdate").value = "";
+        document.getElementById("appointmentdescription").value = "";
+    }
+
+    document.getElementById("modulecode").style.color = "blue";
+    document.getElementById("modulecode").style.fontSize = 25;
+    document.getElementById("heading").style.color = "red";
+    document.getElementById("paragraph").style.color = "red";
+    document.getElementById("heading").style.color = "red";
+    document.getElementById("heading").style.color = "green";
+    document.getElementById("heading").style.color = "red";
+    document.getElementById("heading").style.color = "red";
+    
+</script>
+
+</html>
