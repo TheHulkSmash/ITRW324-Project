@@ -1,75 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <form action = "/addapointment" method="POST">
+    <form action = "/addapointment" >
         <center>
-            <header id="heading">Adding of appointments</header>
-            <p id="paragraph">
-                Add any apointments that comes up
-            </p>
-            <div class="form-group">
-            <label id="modulecode"> Appointment ID:</label>
-            <input type ="text" class="form-control" id="appointment" name="Appointment" />
-            <br />
-            </div>
-
-            <div class="form-group">
-            <label>Appointment description:</label>
-            <input type="text" class="form-control" id="appointmentdescription" name="Appointment_Description" />
-            <br />
-            </div>
-
-            <div class="form-group">
-            <label>Appointment time:</label>
-            <input type="text" class="form-control"  id="appointmenttime" name="Appointment_Time" />
-            <br />
-            </div>
-
-            <div class="form-group">
-            <label>Appointment date</label>
-            <input type="date" class="form-control" name="apointmentdate" id="Apointment_Date" />
-            <br />
-            </div>
-
-
-            <div>
-                <a href="/addclass" class="btn btn-lg btn-goback"> Go Back </a>
-           </div>
-            <br/>
-            <button type="submit"class="btn btn-succcess btn-lg"> Submit Appointment </button>
-
-
-
-            <input type="button" value="clear" onclick="ClearFields();" />
-            <br/>
-
-            <label> data entered:</label>
-            <input type="text" id="dataentered" name="dataentered" />
-        </center>
-    </form>
-
-</body>
-
-<script>
-   
-
-    function ClearFields() {
-
-        document.getElementById("appointmenttime").value = "";
-        document.getElementById("classmodule").value = "";
-        document.getElementById("apointmentdate").value = "";
-        document.getElementById("appointmentdescription").value = "";
-    }
-
-    document.getElementById("modulecode").style.color = "blue";
-    document.getElementById("modulecode").style.fontSize = 25;
-    document.getElementById("heading").style.color = "red";
-    document.getElementById("paragraph").style.color = "red";
-    document.getElementById("heading").style.color = "red";
-    document.getElementById("heading").style.color = "green";
-    document.getElementById("heading").style.color = "red";
-    document.getElementById("heading").style.color = "red";
-    
-</script>
+                <div class="table">
+                        <h3 id="heading" class="card-header text-center font-weight-bold text-uppercase py-4">Your finale timetable:</h3>
+                        <div class="card-body">
+                            <div id="table" class="table-editable">
+                                <span class="table-add float-right mb-3 mr-2">
+                                    <a href="#!" class="text-success">
+                                        <i class="fas fa-plus fa-2x" aria-hidden="true"></i>
+                                    </a>
+                                </span>
+                                <div id="main-div">
+                                    <table id="table"  >
+                                        
+                                            <tr>
+                                                <!--time table headers-->
+                                                <th class="text-center">Time </th>
+                                                <th class="text-center">Mon</th>
+                                                <th class="text-center">Tue</th>
+                                                <th class="text-center">Wed.</th>
+                                                <th class="text-center">Thur.</th>
+                                                <th class="text-center">Fri</th>
+                                                <th class="text-center">Appointments</th>
+                    
+                                            </tr>
+                                        
+                                        <tbody>
+                                            <tr>
+                                                <!--11111111111111111111111111111111111111-->
+                                                <td class="pt-3-half"><br />7.30 - 9.15<br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">ITRW122 <br />G1 201 <br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">ITRW222<br />E5 K01 <br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">No appontments added.</td>
+                                            </tr>
+                    
+                                            <tr>
+                                                <!--22222222222222222222222222222222222222-->
+                                                <td class="pt-3-half"><br />9.30 - 10.45<br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">No appontments added.</td>
+                    
+                                            </tr>
+                    
+                                            <tr>
+                                                <!--33333333333333333333333333333333333333-->
+                                                <td class="pt-3-half"><br />11:00 - 12.45<br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half"> ITRW122<br />G1 201 <br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">ITRW222 <br />E5 K01 <br /></td>
+                                                <td class="pt-3-half">No appontments added.</td>
+                    
+                                            </tr>
+                                            <tr>
+                                                <!--4444444444444444444444444444444444444444-->
+                                                <td class="pt-3-half"><br />13.00 - 14.15<br /></td>
+                                                <td class="pt-3-half">----</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">ITRW122<br />G1 201 <br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">No appontments added.</td>
+                    
+                                            </tr>
+                    
+                                            <tr>
+                                                <!--5555555555555555555555555555555555555555-->
+                                                <td class="pt-3-half"><br />14.30 - 15.45<br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">ITRW222 <BR/> E5 K01</td>
+                                                <td class="pt-3-half"> ---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">No appontments added.</td>
+                                            </tr>
+                    
+                                            <tr>
+                                                <!--6666666666666666666666666666666666666666-->
+                                                <td class="pt-3-half"> <br />16.00 - 17.45<br /></td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">ITRW222 <BR/> E5 K01 </td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">---</td>
+                                                <td class="pt-3-half">No appontments added</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/gotimetable" class="btn btn-danger btn-sm" >Go to module code and appointment page</a>
+                </center>
 
 </html>
