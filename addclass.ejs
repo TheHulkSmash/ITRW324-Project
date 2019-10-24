@@ -34,16 +34,24 @@
                 color: black;
                 font-size: 29px;
             }
+
+           
  </style>
 </head>
 <body>
+
+        
+
     <form action = "/addclass" >
 <center>
-
+        <div class="loader" >
+                
+              </div>
     <h2>If neccesary add appointment:</h2>
     <input type="text" id="appointment" name="appointment"/>
     <br/>
     <button type="button" onclick="addappointment();" >Add to timetable</button>
+    
         <div class="table">
                 <h3 id="heading" class="card-header text-center font-weight-bold text-uppercase py-4">Your finale timetable:</h3>
                 <div class="card-body">
@@ -152,6 +160,8 @@
 
                     paragraph1.textContent = textbox1.value;
                 }
+
+               
         </script>
     </form>
 </body>
