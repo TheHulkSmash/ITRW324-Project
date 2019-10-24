@@ -165,34 +165,4 @@
             <a href="/gotimetable" class="btn btn-danger btn-sm" >Go to module code and appointment page</a>
         </center>
         
-        <script>
-        function addappointment(){
-                    var textbox1 = document.getElementById('appointment');
-                    var paragraph1 = document.getElementById('ap1');
-
-                    paragraph1.textContent = textbox1.value;
-                }
-
-                var myArr = [];
-
-function pushData() {
-    // get value from the input text
-    var inputText = document.getElementById('inputText').value;
-
-    // append data to the array
-    myArr.push(inputText);
-
-    var pval = "";
-
-    for (i = 0; i < myArr.length; i++) {
-        pval = pval + myArr[i] + "<br/>";
-    }
-
-    // display array data
-    document.getElementById('pText').innerHTML = pval;
-}
-
-        </script>
-    </form>
-</body>
-</html>
+       
