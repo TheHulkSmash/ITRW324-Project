@@ -58,7 +58,7 @@
     <label>Appointment time:</label>
     <input type="text" id="inputText2"/>
     <br/>
-    <button type="button" onclick="pushData();" >Add to timetable</button>
+    <button type="button" onclick="pushData();">Add to timetable</button>
     
         <div class="table">
                 <h3 id="heading" class="card-header text-center font-weight-bold text-uppercase py-4">Your final timetable:</h3>
@@ -193,7 +193,7 @@ function pushData() {
     myArr.push(inputText1);
     myArr.push(inputText2);
     
-    var pval = "*";
+    var pval = "1";
 
     for (i = 0; i < myArr.length; i++) {
         pval = pval + myArr[i] + "<br/>";
@@ -201,6 +201,10 @@ function pushData() {
 
     // display array data
     document.getElementById('pText').innerHTML = pval;
+
+    document.getElementById('inputText').value = "";
+    document.getElementById('inputText1').value = "";
+    document.getElementById('inputText2').value = "";
 }
 
         </script>
