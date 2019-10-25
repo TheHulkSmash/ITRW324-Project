@@ -1,34 +1,134 @@
 <!DOCTYPE html>
+<head>
+        <title>Adding page</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Login Register</title>
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+     <link rel="stylesheet" 
+     href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+
+
+</head>
+
+
 <html>
-    <head>
+    <center>
+        <form action="/gotimetable" method="" > 
+            <body id="main-body">
 
-            <title>Your timetable</title>
-            <meta charset="windows-1252">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-         <title>Login Register</title>
-         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-         <link rel="stylesheet" 
-         href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    </head>
-<meta name="viewport" content="width=device-width, initial-scale=0.5">
-<style>
-    .div1{
-        width: 33.3%;
-    }
+                        <br/>
+                        <button type="button"class="tablink" onclick="openPage('News', this, '')" >Campus map</button>
+                        <button type="button" class="tablink" onclick="openPage('Home', this, '')">Campus video</button>
+                        
 
-</style>
-<body>
+<div id="Home" class="tabcontent">
+    <body> 
+        <br/>
+            <a href="/govideo" class="btn btn-danger btn-sm" >Go to module code and appointment page</a>
+</body>   
+</div>
 
-
-    <div class="div1">
-        <img src="https://www.thedailyvox.co.za/wp-content/uploads/2015/09/NWU-Pukke-2.jpg"/>
-
-    </div>
+<!-- <div id="News" class="tabcontent">
+        <br/>
+        <h7 style="font-size: 25px;"><u>This is a map of NWU(Potch) campus:</u></h7>
+        <br/>
+        <br/>
+        <img src="http://www.aquiworx.co.za/images/map_big.jpg"/>
+        <br/>
+        
+</div>
 <br/>
-    <a href="/gotimetable" class="btn btn-danger btn-sm" >Go to module code and appointment page</a>
-</body> 
+<br/>
+<a href="/logout" class="btn btn-danger btn-sm">Logout</a>
 
+                <script>
+
+                    document.getElementById("tables").style.backgroundColor = "lightgray";
+                    document.getElementById("main-body").style.backgroundColor = "white";
+                    document.getElementById("heading").style.color = "red";
+
+                 -->
+            
+
+
+                
+
+// Get the element with id="defaultOpen" and click on it
+//document.getElementById("defaultOpen").click();
+                </script>
+                <script>
+                function openPage(pageName,elmnt,color) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+                document.getElementById(pageName).style.display = "block";
+                elmnt.style.backgroundColor = color;
+                }
+                </script>
+                <style>
+                    span {
+  content: "\2937";
+  font-size: 50px;
+} 
+                   
+body  {
+                background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSo7ZU0SxjQ97lXWrd32z4aChMPYElqpfHPeWjfFcoxWE_04-ng");
+                background-size: 100%;
+                background-repeat: no-repeat;
+              }
+                    table, th, td {
+                    border: 5px solid black;
+                    }
+                    .tabcontent {
+                    color: black;
+                    display: none;
+
+                    }
+
+                    * {box-sizing: border-box}
+
+                    /* Set height of body and the document to 100% */
+                    body, html {
+                    height: 100%;
+                    margin: 0;
+                    font-family: Arial;
+                    }
+
+                    
+                    /* Style tab links */
+                    .tablink {
+                    background-color: #555;
+                    color: white;
+                    float: center;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    padding: 14px 16px;
+                    font-size: 17px;
+                    width: 25%;
+                    }
+                    body  {
+                    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSo7ZU0SxjQ97lXWrd32z4aChMPYElqpfHPeWjfFcoxWE_04-ng");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    }
+                    .tablink:hover {
+                    background-color: #777;
+                    }
+                </style>
+
+            </body>
+    </form>
+</center>
 </html>
