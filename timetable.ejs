@@ -25,8 +25,6 @@
                         <button type="button"class="tablink" onclick="openPage('News', this, '')" >Adding class module</button>
                         <button type="button" class="tablink" onclick="openPage('Home', this, '')">Add appointments</button>
 
-                        <a href="/logout" class="btn btn-danger btn-sm" >Logout</a>
-
 
 <div id="Home" class="tabcontent">
     <center>
@@ -87,6 +85,7 @@
         <!--<a href="/addclass" class="btn btn-danger btn-sm" >Create timetable</a>-->
         
 </div>
+
                 <script>
 
                     document.getElementById("tables").style.backgroundColor = "lightgray";
@@ -174,9 +173,7 @@
                 elmnt.style.backgroundColor = color;
                 }
                 </script>
-                <style>
-                    
-                    table, th, td {
+    table, th, td {
                     border: 5px solid black;
                     }
                     .tabcontent {
@@ -193,6 +190,7 @@
                     margin: 0;
                     font-family: Arial;
                     }
+
 
                     /* Style tab links */
                     .tablink {

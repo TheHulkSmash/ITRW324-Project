@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>timetable</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+     <link rel="stylesheet" 
+     href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<!-- <link href="css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/> -->
+<link href="main.css" rel="stylesheet" type="text/css" /> 
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js" > </script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js223E"</script> -->
+
+<!-- <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery-1.6.2.min.js"></script> -->
+<!-- <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery-ui-1.8.16.custom.min.js"></script> -->
+<!-- <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/script.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js223E> </script>  -->
+<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/jquery-ui.min.css"/> -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+
+
+<title>Set an Alarm For One Of Your Classes Or Appointments</title>
+<!-- <title>Set an Alarm For One Of Your Class Or an Appointment</title> -->
+<style>
+       
+
+  body  {
+     background-image: url("https://image.shutterstock.com/image-illustration/paint-like-graphic-illustration-nice-260nw-1252427656.jpg");
+     background-size: 100%;
+       background-repeat: no-repeat;
+        }
+
+        
+</style>
+</head>
+<body>
+        <form action = "/notification" >
+    <div class="example">
+        <!-- <h3><a href="https://www.script-tutorials.com/animated-jquery-progressbar/">Set an Alarm For One Of Your Classes Or Appointments</a></h3> -->
+        <!-- <div id="progress1">
+            <div class="percent"></div>
+            <div class="pbar"></div>
+            <div class="elapsed"></div>
+        </div> -->
+        <hr />
+        <div id="progress2" style="border: green;">
+            <div class="percent"></div>
+            <div class="pbar"></div>
+            <div class="elapsed"></div>
+        </div>
+        <hr />
+        <!-- <div id="myProgress" style="width:100%; background-color: grey;">
+                <div id="progress2" style="width:1%; height:30px; background-color: green; "></div> -->
+        <!-- </div> -->
+        <!-- <div id="progress3">
+            <div class="percent"></div>
+            <div class="pbar"></div>
+            <div class="elapsed"></div>
+        </div> -->
+        <div class="col-md-3">
+            <center>
+            <br/>
+            
+                <label>Enter Module/Appointment Name</label> 
+                <input type="text" id="text1" >
+                <br/>
+                <label>Enter Venue</label> 
+                <input type="text" id="text2">
+                <br/>
+                <!-- <button onclick="display()">Submit</button> -->
+                <label>Select Time</label>
+                <select class="browser-default custom-select" id="dropdownlist">
+                  <!-- ************************************************************************* -->
+                  <option selected value="10">10 seconds</option>
+                  <option selected value="60">1 minute</option>
+                  <option selected value="180">3 minutes</option>
+                  <option selected value="1800">30 minutes</option>
+                  <option selected value="3600">1 Hour</option>
+                  <option selected value="10800">3 Hours</option>
+                  <option selected value="86400">1 Day</option>
+                  <option selected value="">________</option>
+                </select>
+            </center>
+        </div>
+    </div>
+</body>
+
+
+<script>
+
+$(document).ready(function(){
+    $('#dropdownlist').change(function(){    
+        var time = document.getElementById("dropdownlist");
+        var strUser = time.options[time.selectedIndex].value;
+        // alert(strUser);
+        jQuery.fn.anim_progressbar = function (aOptions) {
+            // def values
+            var iCms = 1000;
+            var iMms = 60 * iCms;
+            var iHms = 3600 * iCms;
+            var iDms = 24 * 3600 * iCms;
+            // def options
+            var aDefOpts = {
+                start: new Date(), // now
+                finish: new Date().setTime(new Date().getTime() + time * iCms), // now + 60 sec
+                interval: 100
+            }
+            var aOpts = jQuery.extend(aDefOpts, aOptions);
+            var vPb = this;
+            // each progress bar
+            return this.each(
+                function() {
+                    var iDuration = aOpts.finish - aOpts.start;
+                    // calling original progressbar
+                    $(vPb).children('.pbar').progressbar();
+                    // looping process
+                    var vInterval = setInterval(
+                        function(){
+                            var iLeftMs = aOpts.finish - new Date(); // left time in MS
+                            var iElapsedMs = new Date() - aOpts.start, // elapsed time in MS
+                                iDays = parseInt(iLeftMs / iDms), // elapsed days
+                                iHours = parseInt((iLeftMs - (iDays * iDms)) / iHms), // elapsed hours
+                                iMin = parseInt((iLeftMs - (iDays * iDms) - (iHours * iHms)) / iMms), // elapsed minutes
+                                iSec = parseInt((iLeftMs - (iDays * iDms) - (iMin * iMms) - (iHours * iHms)) / iCms), // elapsed seconds
+                                iPerc = (iElapsedMs > 0) ? iElapsedMs / iDuration * 100 : 0; // percentages
+                            // display current positions and progress
+                            $(vPb).children('.percent').html('<b>'+iPerc.toFixed(1)+'%</b>');
+                            $(vPb).children('.elapsed').html(iDays+' days '+iHours+'h:'+iMin+'m:'+iSec+'s</b>');
+                            $(vPb).children('.pbar').children('.ui-progressbar-value').css('width', iPerc+'%');
+                            // in case of Finish
+                            if (iPerc >= 100) {
+                                clearInterval(vInterval);
+                                $(vPb).children('.percent').html('<b>100%</b>');
+                                $(vPb).children('.elapsed').html('Finished');
+                                
+                                    var txtbox = document.getElementById("text1").value;
+                                    var txtbox2 = document.getElementById("text2").value;
+                                    alert("Make Your way to Your Class/Appontment" +"\n"+ txtbox + "\n" + txtbox2);
+                                
+                                
+                            }
+                        } ,aOpts.interval
+                    );
+                }
+            );
+        }
+        // default mode
+        $('#progress1').anim_progressbar();
+        // from second #5 till 15
+        var iNow = new Date().setTime(new Date().getTime()); // now plus 5 secs
+        var iEnd = new Date().setTime(new Date().getTime() + strUser * 1000); // now plus 15 secs
+        $('#progress2').anim_progressbar({start: iNow, finish: iEnd, interval: 100});
+        // // // we will just set interval of updating to 1 sec
+        $('#progress3').anim_progressbar({interval: 1000});
+        // $('#progress4').anim_progressbar({interval: 1000});
+    });
+});
+</script>
+</html>
